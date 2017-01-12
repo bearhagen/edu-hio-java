@@ -1,0 +1,10 @@
+Output av:
+    System.out.print("Hello");
+    System.out.println("World");
+
+Blir følgende:
+
+// Start
+HelloWorld
+
+// Slutt
