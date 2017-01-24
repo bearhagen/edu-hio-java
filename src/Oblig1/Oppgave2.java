@@ -1,8 +1,14 @@
 package Oblig1;
 
+import javax.swing.*;
+
+/**
+ * Created by bjorn on 1/13/2017.
+ */
 public class Oppgave2 {
     public static void main(String[] args) {
-        cowsay("Hello World");
+        String output = JOptionPane.showInputDialog("Say something");
+        cowsay(output);
     }
 
     public static void cowsay(String cowsays) {

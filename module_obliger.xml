@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_obliger" default="compile.module.obliger">
+  <dirname property="module.obliger.basedir" file="${ant.file.module_obliger}"/>
+  
+  <property name="module.jdk.home.obliger" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.obliger" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.obliger" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.obliger" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="obliger.output.dir" value="${module.obliger.basedir}/out/production/Obliger"/>
+  <property name="obliger.testoutput.dir" value="${module.obliger.basedir}/out/test/Obliger"/>
+  
+  <path id="obliger.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="obliger.module.production.classpath">
+    <path refid="${module.jdk.classpath.obliger}"/>
+  </path>
+  
+  <path id="obliger.runtime.production.module.classpath">
+    <pathelement location="${obliger.output.dir}"/>
+  </path>
+  
+  <path id="obliger.module.classpath">
+    <path refid="${module.jdk.classpath.obliger}"/>
+    <pathelement location="${obliger.output.dir}"/>
+  </path>
+  
+  <path id="obliger.runtime.module.classpath">
+    <pathelement location="${obliger.testoutput.dir}"/>
+    <pathelement location="${obliger.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.obliger">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.obliger">
+    <patternset refid="excluded.from.module.obliger"/>
+  </patternset>
+  
+  <path id="obliger.module.sourcepath">
+    <dirset dir="${module.obliger.basedir}">
+      <include name="src"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.obliger" depends="compile.module.obliger.production,compile.module.obliger.tests" description="Compile module Obliger"/>
+  
+  <target name="compile.module.obliger.production" depends="register.custom.compilers" description="Compile module Obliger; production classes">
+    <mkdir dir="${obliger.output.dir}"/>
+    <javac2 destdir="${obliger.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.obliger}/javac">
+      <compilerarg line="${compiler.args.obliger}"/>
+      <bootclasspath refid="obliger.module.bootclasspath"/>
+      <classpath refid="obliger.module.production.classpath"/>
+      <src refid="obliger.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.obliger"/>
+    </javac2>
+    
+    <copy todir="${obliger.output.dir}">
+      <fileset dir="${module.obliger.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.obliger.basedir}/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.obliger.tests" depends="register.custom.compilers,compile.module.obliger.production" description="compile module Obliger; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.obliger" description="cleanup module">
+    <delete dir="${obliger.output.dir}"/>
+    <delete dir="${obliger.testoutput.dir}"/>
+  </target>
+</project>

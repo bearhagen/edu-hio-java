@@ -1,7 +1,9 @@
 package Oblig1;
 
+/**
+ * Created by bjorn on 1/13/2017.
+ */
 public class Oppgave3 {
-    
     public static void main(String[] args) {
         // StandardCharsets.UTF_8;
         System.out.println(String.format("%66s", "").replace(" ", "-"));
