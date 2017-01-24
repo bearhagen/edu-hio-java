@@ -1,12 +1,7 @@
 package Oblig2;
 
-import javax.swing.JFrame;
-import javax.swing.JComponent;
-import javax.swing.WindowConstants;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by bjorn on 1/24/2017.

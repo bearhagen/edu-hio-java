@@ -1,13 +1,7 @@
 package Oblig2;
 
-import javax.swing.JFrame;
-import javax.swing.JComponent;
-import javax.swing.WindowConstants;
-import java.awt.Color;
-import java.awt.Polygon;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by bjorn on 1/24/2017.
@@ -39,8 +33,9 @@ public class House {
             g2.setStroke(new BasicStroke(5)); // To get some width on the lines
             g.setColor(new Color(0, 0, 0));
 
-            // Walls
-            g.drawRect(l, t, r-100, b-100);
+            g.drawRect(l, t, r-100, b-100);          // Walls
+            g.drawRect(l+100, b-200, 200, 100); // Window
+            g.drawRect(r-200, b-150, 100, 150); // Door
 
             // Roof
             int roofX[] = { l-50, l+75, r-75, r+50 };
