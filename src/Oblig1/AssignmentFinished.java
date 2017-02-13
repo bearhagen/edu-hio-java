@@ -1,4 +1,4 @@
-package Oblig1;
+package oblig1;
 
 import javax.swing.*;
 import java.io.IOException;
