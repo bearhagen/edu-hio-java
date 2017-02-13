@@ -1,4 +1,4 @@
-package Oblig2;
+package oblig2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,17 +25,17 @@ public class House {
         }
         private void draw(Graphics g) {
             final int t = 100;  // Top
-            final int r = frame.getWidth()-100; // Right
+            final int r = frame.getWidth()-100;  // Right
             final int b = frame.getHeight()-100; // Bottom
             final int l = 100;  // Left
 
-            Graphics2D g2 = (Graphics2D) g;        // Cast the type
-            g2.setStroke(new BasicStroke(5)); // To get some width on the lines
+            Graphics2D g2 = (Graphics2D) g;      // Cast the type
+            g2.setStroke(new BasicStroke(5));    // To get some width on the lines
             g.setColor(new Color(0, 0, 0));
 
-            g.drawRect(l, t, r-100, b-100);          // Walls
-            g.drawRect(l+100, b-200, 200, 100); // Window
-            g.drawRect(r-200, b-150, 100, 150); // Door
+            g.drawRect(l, t, r-100, b-100);      // Walls
+            g.drawRect(l+100, b-200, 200, 100);  // Window
+            g.drawRect(r-200, b-150, 100, 150);  // Door
 
             // Roof
             int roofX[] = { l-50, l+75, r-75, r+50 };

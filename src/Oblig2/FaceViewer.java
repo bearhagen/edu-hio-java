@@ -1,4 +1,4 @@
-package Oblig2;
+package oblig2;
 
 import javax.swing.*;
 import java.awt.*;

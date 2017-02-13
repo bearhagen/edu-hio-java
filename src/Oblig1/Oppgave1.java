@@ -1,11 +1,11 @@
-package Oblig1;
+package oblig1;
 
 /**
  Output av:
  System.out.print("Hello");
  System.out.println("World");
 
- Blir fÃ¸lgende:
+ Blir følgende:
 
  Start
  HelloWorld

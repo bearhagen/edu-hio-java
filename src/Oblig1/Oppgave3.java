@@ -1,4 +1,4 @@
-package Oblig1;
+package oblig1;
 
 /**
  * Created by bjorn on 1/13/2017.
